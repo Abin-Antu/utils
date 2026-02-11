@@ -74,6 +74,11 @@ cd utils
 | **timeutils** | Time and date manipulation utilities               | [README](time/README.md)      | [EXAMPLES](time/EXAMPLES.md)      |
 | **url**       | URL parsing and manipulation utilities             | [README](url/README.md)       | [EXAMPLES](url/EXAMPLES.md)       |
 | **retry**     | Retry fallible operations                          | [README](retry/README.md)     | [EXAMPLES](retry/EXAMPLES.md)     |
+| **conversion** | Conversion of data types, time, and temperatues   | [README](conversion/README.md) | [EXAMPLES](conversion/EXAMPLES.md)
+| **ratelimiter** | Token-bucket rate limiter (allow/wait, adjustable capacity & refill rate) | [README](ratelimiter/README.md) | [EXAMPLES](ratelimiter/EXAMPLES.md) |
+| **queue** | Queue data structure| [README](queue/README.md) | [EXAMPLES](queue/EXAMPLES.md) |
+| **image** | Utility functions for working with images | [README](image/README.md) | [EXAMPLES](image/EXAMPLES.md) |
+| **pdf** | PDF utilities (HTML to PDF, text extraction, merge, split) | [README](pdf/README.md) | [EXAMPLES](pdf/EXAMPLES.md) |
 
 ## Contributions
 
