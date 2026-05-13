@@ -59,6 +59,7 @@ cd utils
 | **logging**   | Flexible logging system for Golang                 | [README](logging/README.md)   | [EXAMPLES](logging/EXAMPLES.md)   |
 | **maps**      | Utilities for state and metadata maps              | [README](maps/README.md)      | [EXAMPLES](maps/EXAMPLES.md)      |
 | **math**      | Mathematical utilities and helpers                 | [README](math/README.md)      | [EXAMPLES](math/EXAMPLES.md)      |
+| **pdf**       | PDF utilities (HTML to PDF, text extraction, merge, split) | [README](pdf/README.md) | [EXAMPLES](pdf/EXAMPLES.md) |
 | **pointers**  | Helper functions for working with pointer values   | [README](pointers/README.md)  | [EXAMPLES](pointers/EXAMPLES.md)  |
 | **queue** | Queue data structure| [README](queue/README.md) | [EXAMPLES](queue/EXAMPLES.md) |
 | **rand**      | Random number and string generation utilities      | [README](rand/README.md)      | [EXAMPLES](rand/EXAMPLES.md)      |
