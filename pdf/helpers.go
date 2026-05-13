@@ -18,6 +18,7 @@ func toLatin1(s string) string {
 			b.WriteByte(' ')
 		}
 	}
+
 	return b.String()
 }
 
@@ -27,6 +28,7 @@ func addStyle(existing, flag string) string {
 	if strings.Contains(existing, flag) {
 		return existing
 	}
+
 	return existing + flag
 }
 

@@ -259,7 +259,7 @@ func (g *Generator) pickFromRangesN(ranges []rune, total int) rune {
 	for i := 0; i < len(ranges); i += 2 {
 		size := int(ranges[i+1]-ranges[i]) + 1
 		if n < size {
-			return ranges[i] + rune(n)
+			return ranges[i] + rune(n) //nolint:gosec // n bounded by rune range size
 		}
 
 		n -= size
@@ -279,7 +279,7 @@ func countRunes(ranges []rune) int {
 }
 
 func (g *Generator) randPrintable() rune {
-	return printableMin + rune(g.rng.IntN(int(printableMax-printableMin+1)))
+	return printableMin + rune(g.rng.IntN(int(printableMax-printableMin+1))) //nolint:gosec // value bounded by printable rune range
 }
 
 func (g *Generator) randPrintableExcluding(exclude rune) rune {

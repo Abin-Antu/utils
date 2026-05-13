@@ -823,7 +823,7 @@ func runForkTest(t *testing.T) (stdout, stderr string, err error) {
 	}
 
 	inputCmd := os.Args[0]
-	cmd := exec.Command(inputCmd, "-test.run", testName)
+	cmd := exec.Command(inputCmd, "-test.run", testName) //nolint:gosec // inputCmd is os.Args[0], the test binary itself
 	cmd.Env = append(os.Environ(), "FORK=1")
 
 	var stdoutBuf, stderrBuf bytes.Buffer

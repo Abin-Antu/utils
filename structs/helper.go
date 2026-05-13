@@ -12,7 +12,7 @@ import "reflect"
 //
 // This allows CompareStructs to safely handle nested nil struct fields like `*Profile == nil`
 func derefOrZeroStruct(v reflect.Value) reflect.Value {
-	if v.Kind() == reflect.Ptr {
+	if v.Kind() == reflect.Pointer {
 		if v.IsNil() {
 			return reflect.Zero(v.Type().Elem())
 		}
@@ -31,7 +31,7 @@ func derefOrZeroStruct(v reflect.Value) reflect.Value {
 //
 // Used in field-by-field comparison to avoid comparing pointers directly.
 func derefIfPointer(v reflect.Value) reflect.Value {
-	if v.Kind() == reflect.Ptr && !v.IsNil() {
+	if v.Kind() == reflect.Pointer && !v.IsNil() {
 
 		return v.Elem()
 	}

@@ -90,6 +90,7 @@ func renderNode(p *fpdf.Fpdf, n *html.Node, stack []fontState) {
 		if text != "" {
 			p.Write(6, toLatin1(text)+" ")
 		}
+
 		return
 	}
 
@@ -97,6 +98,7 @@ func renderNode(p *fpdf.Fpdf, n *html.Node, stack []fontState) {
 		for c := n.FirstChild; c != nil; c = c.NextSibling {
 			renderNode(p, c, stack)
 		}
+
 		return
 	}
 
@@ -188,6 +190,7 @@ func renderNode(p *fpdf.Fpdf, n *html.Node, stack []fontState) {
 		p.Ln(3)
 	case "img":
 		renderImage(p, n)
+
 		return
 	}
 
@@ -218,6 +221,7 @@ func renderImage(p *fpdf.Fpdf, n *html.Node) {
 	for _, attr := range n.Attr {
 		if attr.Key == "src" {
 			src = attr.Val
+
 			break
 		}
 	}
