@@ -165,16 +165,19 @@ func renderNode(p *fpdf.Fpdf, n *html.Node, stack []fontState) {
 		p.Write(6, "  - ")
 		isBlock = true
 	case "b", "strong":
-		p.SetFont(cur.family, "B", cur.size)
-		stack = append(stack, fontState{cur.family, "B", cur.size})
+		s := addStyle(cur.style, "B")
+		p.SetFont(cur.family, s, cur.size)
+		stack = append(stack, fontState{cur.family, s, cur.size})
 		pushed = true
 	case "i", "em":
-		p.SetFont(cur.family, "I", cur.size)
-		stack = append(stack, fontState{cur.family, "I", cur.size})
+		s := addStyle(cur.style, "I")
+		p.SetFont(cur.family, s, cur.size)
+		stack = append(stack, fontState{cur.family, s, cur.size})
 		pushed = true
 	case "a":
-		p.SetFont(cur.family, "U", cur.size)
-		stack = append(stack, fontState{cur.family, "U", cur.size})
+		s := addStyle(cur.style, "U")
+		p.SetFont(cur.family, s, cur.size)
+		stack = append(stack, fontState{cur.family, s, cur.size})
 		pushed = true
 	case "br":
 		p.Ln(5)
@@ -194,15 +197,15 @@ func renderNode(p *fpdf.Fpdf, n *html.Node, stack []fontState) {
 
 	if pushed {
 		stack = stack[:len(stack)-1]
-		parent := fontState{"Arial", "", 12}
-		if len(stack) > 0 {
-			parent = stack[len(stack)-1]
-		}
-		p.SetFont(parent.family, parent.style, parent.size)
-
 		if isBlock {
 			p.Ln(lineH(cur.size) + 1)
 			p.SetFont("Arial", "", 12)
+		} else {
+			parent := fontState{"Arial", "", 12}
+			if len(stack) > 0 {
+				parent = stack[len(stack)-1]
+			}
+			p.SetFont(parent.family, parent.style, parent.size)
 		}
 	} else if isBlock {
 		p.Ln(2)

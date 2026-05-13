@@ -21,6 +21,15 @@ func toLatin1(s string) string {
 	return b.String()
 }
 
+// addStyle appends a style flag (B, I, U) to an existing fpdf style string if
+// not already present, enabling correct combined styles like "BI" for bold-italic.
+func addStyle(existing, flag string) string {
+	if strings.Contains(existing, flag) {
+		return existing
+	}
+	return existing + flag
+}
+
 // parsePageRange parses a page range string like "1-3" or "5" and returns
 // the start and end page numbers (1-indexed). For a single page like "5",
 // both start and end will be 5.
